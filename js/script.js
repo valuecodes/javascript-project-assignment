@@ -35,7 +35,6 @@ class NavigationCircle{
         }
         moveElem(this)
     }
-
 }
 
 (function() {
