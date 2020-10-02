@@ -5,7 +5,6 @@ class NavigationCircle{
         this.xPos = 105
         this.size = size
         this.offset = size/2
-        
         document.body.addEventListener('click',(e)=>this.move(e))
     }
     move(e){
@@ -37,8 +36,20 @@ class NavigationCircle{
     }
 }
 
+class InfoContainer{
+    constructor(elem,dimensions){
+        this.elem = elem
+        this.dimensions = elem.getBoundingClientRect()
+    }
+}
+
 (function() {
+
+    const infoContainerElement = document.getElementById('infoContainer1')
+    let infoContainer1 = new InfoContainer(infoContainerElement)
+    
     const navElement = document.getElementById('navigationCircle')
-    const navCircle = new NavigationCircle(navElement,30)
+    const navCircle = new NavigationCircle(navElement,30,infoContainer1)
+
 
  })();
