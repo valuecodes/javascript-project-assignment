@@ -1,10 +1,11 @@
 class NavigationCircle{
-    constructor(el,size){
+    constructor(el,size,infoContainers){
         this.el = el
         this.yPos = 70
         this.xPos = 105
         this.size = size
         this.offset = size/2
+        this.infoContainers = infoContainers
         document.body.addEventListener('click',(e)=>this.move(e))
     }
     move(e){
@@ -14,7 +15,6 @@ class NavigationCircle{
         let currentY = this.yPos
         const xSpeed = Math.abs((xTarget-currentX)/100)
         const ySpeed = Math.abs((yTarget-currentY)/100)
-        
         function moveElem(elem){
             if(currentX!==xTarget){
                 currentX +=  currentX<xTarget?xSpeed:-xSpeed
@@ -25,7 +25,11 @@ class NavigationCircle{
             elem.xPos = currentX
             elem.yPos = currentY
             elem.el.style.left = currentX+'px'
-            elem.el.style.top = currentY+'px'   
+            elem.el.style.top = currentY+'px'
+            elem.infoContainers.forEach(infoContainer =>
+                 infoContainer.checkIfCircleIsInside(elem)   
+            )
+            
             if(Math.abs(currentX-xTarget)>1&&Math.abs(currentY-yTarget)>1){
                 setTimeout(()=>{
                     moveElem(elem)
@@ -39,17 +43,32 @@ class NavigationCircle{
 class InfoContainer{
     constructor(elem,dimensions){
         this.elem = elem
-        this.dimensions = elem.getBoundingClientRect()
+        this.bgcolor = ''
+    }
+
+    checkIfCircleIsInside(navCircle){
+        const { yPos, xPos } = navCircle
+        const { top, right, bottom, left } = this.elem.getBoundingClientRect()
+        if(yPos>top&&yPos<bottom&&xPos>left&&xPos<right){
+            this.elem.style.backgroundColor = 'gray'
+        }else{
+            this.elem.style.backgroundColor = ''
+        }
     }
 }
 
 (function() {
 
-    const infoContainerElement = document.getElementById('infoContainer1')
-    let infoContainer1 = new InfoContainer(infoContainerElement)
-    
+    let infoContainers = []
+
+    for(var i=1;i<=4;i++){
+        const infoContainerElement = document.getElementById('infoContainer'+i)   
+        infoContainers.push(new InfoContainer(infoContainerElement))     
+    }
+
+    console.log(window.innerHeight)
+
     const navElement = document.getElementById('navigationCircle')
-    const navCircle = new NavigationCircle(navElement,30,infoContainer1)
-
-
- })();
+    const navCircle = new NavigationCircle(navElement,30,infoContainers)
+ 
+})();
