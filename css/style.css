@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Baloo+Tamma+2&family=Fira+Mono&family=Patrick+Hand+SC&family=Roboto&family=Varela+Round&family=Yrsa&display=swap");
+
 *{
     margin: 0;
     padding: 0;
@@ -7,6 +9,7 @@ body{
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    font-family: Varela Round, Arial, Helvetica, sans-serif;
 }
 
 .startingCircle{
@@ -42,6 +45,26 @@ body{
 .infoContainer{
     border-radius: 10px;
     border: 1px solid rgb(161, 161, 161);
+    padding:1rem;
+}
+
+.infoContainer h2{
+    padding-bottom: 1rem;
+    font-size: 2rem;
+}
+
+label{
+    font-size: 1rem;
+}
+
+p{
+    font-size: 0.8rem;
+}
+
+.infoContainer .content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
 }
 
 #infoContainer1{
@@ -59,7 +82,7 @@ body{
     grid-row: 5/8;
 }
 #infoContainer4{
-    grid-column: 4/10;
+    grid-column: 4/12;
     grid-row: 9/12;
 }
 
@@ -83,12 +106,12 @@ body{
 }
 #obstacle4{
     grid-column: 9/10;
-    grid-row: 6/9;
+    grid-row: 4/7;
 }
 
 #obstacle5{
     grid-column: 7/8;
-    grid-row: 4/7;
+    grid-row: 6/9;
 }
 
 #obstacle6{
@@ -98,6 +121,85 @@ body{
 
 .finnishLine{
     margin: auto;
-    grid-column: 10/12;
+    grid-column: 10/11;
     grid-row: 9/12;
 }
+
+.form{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 8rem 8rem 5rem;
+    grid-gap: 1rem;
+}
+
+.form li h2{
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+}
+
+label{
+    display: block;
+}
+
+input{
+    width: 8rem;
+}
+
+textarea{
+    width: 8rem;
+    height: 4rem;
+}
+
+button{
+    margin-top: 3.5rem;
+    height: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    width: 100px;
+    cursor: pointer;
+    background-color: rgb(197, 197, 197);
+}
+
+@media only screen and (max-width: 500px) {
+
+    #navigationCircle{
+        height: 30px;
+        width: 30px;
+    }
+    #navigationCircle i{
+        transform: scale(0.6);
+    }
+
+    .infoContainer .content{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 0.2rem;
+    }
+
+    .infoContainer h2{
+        padding-bottom: 0.1rem;
+        font-size: 0.8rem;
+    }
+
+    label{
+        font-size: 0.4rem;
+    }
+
+    p{
+        font-size: 0.5rem;
+    }
+    .finnishLine{
+        transform: scale(0.5);
+    }
+
+    .form{
+        grid-template-columns: 1fr;
+        grid-gap: 0px;        
+    }
+    
+  }
+
