@@ -93,7 +93,7 @@ class Obstacle{
         infoContainers.push(new InfoContainer(infoContainerElement))     
     }
 
-    for(var i=1;i<=2;i++){
+    for(var i=1;i<=6;i++){
         const obstacleElement = document.getElementById('obstacle'+i)   
         obstacles.push(new Obstacle(obstacleElement))
     }
