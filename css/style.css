@@ -183,7 +183,7 @@ a{
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: 8rem 8rem 5rem;
+    grid-template-columns: 10rem 10rem 5rem;
     grid-gap: 1rem;
 }
 
@@ -198,11 +198,11 @@ label{
 }
 
 input{
-    width: 8rem;
+    width: 10rem;
 }
 
 textarea{
-    width: 8rem;
+    width: 10rem;
     height: 4rem;
 }
 
