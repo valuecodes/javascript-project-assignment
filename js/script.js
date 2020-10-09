@@ -3,7 +3,7 @@ class NavigationCircle{
         this.el = el
         this.speakingBubble = document.getElementById('speakingBubble')
         this.yPos = 70
-        this.xPos = 105
+        this.xPos = 30
         this.size = size
         this.offset = size/2
         this.infoContainers = infoContainers
