@@ -12,14 +12,6 @@ body{
     font-family: Varela Round, Arial, Helvetica, sans-serif;
 }
 
-.startingCircle{
-    position: absolute;
-    margin-top: 40px;
-    margin-left: 40px;
-    height: 160px;
-    width: 160px;
-    border-radius: 50%;
-}
 
 #navigationCircle{
     display: flex;
@@ -27,12 +19,27 @@ body{
     align-items: center;
     height: 50px;
     width: 50px;
-    background-color: lightskyblue;
+    background-color: rgb(135, 194, 250);
     border-radius: 50%;
     position: absolute;
     top: 70px;
     left:105px;
     z-index: 1;
+}
+
+#speakingBubble{
+    visibility: visible;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    min-width: 12em;
+    padding: 10px;
+    left: 35px;
+    bottom: 40px;
+    background-color: rgb(223, 237, 243);
+    font-size: 20px;
 }
 
 .grid{
@@ -41,14 +48,6 @@ body{
     grid-template-columns: repeat(11,1fr);
     grid-template-rows: repeat(11,1fr);
     gap: 10px;
-}
-
-.startingPoint{
-    grid-column: 2/5;
-    font-size: 1.4rem;
-    background-color: rgba(223, 237, 243, 0.349);
-    border-radius: 2rem;
-    padding: 1rem;
 }
 
 .infoContainer{
