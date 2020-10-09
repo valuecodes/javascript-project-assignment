@@ -59,12 +59,9 @@ class InfoContainer{
         const { yPos, xPos } = navCircle
         const { top, right, bottom, left } = this.elem.getBoundingClientRect()
         if(yPos>top&&yPos<bottom&&xPos>left&&xPos<right){
-            // this.elem.style.backgroundColor = 'gray'
             this.elem.style.cssText = 'filter: blur(0);'
         }else{
-            // this.elem.style.backgroundColor = ''
             this.elem.style.cssText = 'filter: blur(50px);'
-
         }
     }
 }
