@@ -2,10 +2,14 @@ class NavigationCircle{
     constructor(el,size,infoContainers,obstacles){
         this.el = el
         this.speakingBubble = document.getElementById('speakingBubble')
+        this.scoreTracking = document.getElementById('scoreTracking')
+        this.progressTracking = document.getElementById('progress')
         this.yPos = 70
         this.xPos = 30
         this.size = size
         this.offset = size/2
+        this.wallHits = 0
+        this.progress = 0
         this.infoContainers = infoContainers
         this.obstacles = obstacles
         document.body.addEventListener('click',(e)=>this.move(e))
@@ -67,6 +71,15 @@ class NavigationCircle{
         this.speakingBubble.style.transform = `rotateY(${rotation}deg)`
         this.el.style.transform = `rotateY(${rotation}deg)`;
     }
+    wallhit(){
+        this.wallHits++
+        this.scoreTracking.textContent = this.wallHits
+    }
+    updateProgress(value){
+        this.progress = value*=25
+        this.progressTracking.textContent = this.progress + '%'
+
+    }
 }
 
 class InfoContainer{
@@ -80,16 +93,17 @@ class InfoContainer{
         const { yPos, xPos } = navCircle
         const { index } = this
         const { top, right, bottom, left } = this.elem.getBoundingClientRect()
-        console.log(index)
         if(yPos>top&&yPos<bottom&&xPos>left&&xPos<right){
             if(index===1)navCircle.speak('Hey I found something!')
             if(index===2)navCircle.speak('Nice picture')
             if(index===3)navCircle.speak('Click download to get pdf')
             if(index===4)navCircle.speak('Destination reached!')
             this.elem.style.cssText = 'filter: blur(0);'
+            navCircle.updateProgress(index)
         }else{
             this.elem.style.cssText = 'filter: blur(50px);'
         }
+        
     }
 }
 
@@ -106,6 +120,7 @@ class Obstacle{
             xPos+size>left&&
             xPos<right
         ){
+            navCircle.wallhit()
             navCircle.speak('Ouch I hit a wall!')
             this.elem.style.backgroundColor = 'salmon'
             return true

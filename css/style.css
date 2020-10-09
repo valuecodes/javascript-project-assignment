@@ -84,9 +84,32 @@ a{
     grid-gap: 1rem;
 }
 
+.stats{
+    grid-column: 2/6;
+    grid-row: 1/3;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#scoreTracking{
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+#progress{
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+}
+
 #infoContainer1{
     grid-column: 7/12;
     grid-row: 1/4;
+    
 }
 
 #infoContainer2{
@@ -214,6 +237,18 @@ button{
         bottom: 25px;
         background-color: rgb(223, 237, 243);
         font-size: 10px;
+    }
+
+    .stats h3{
+        /* font-size: 0.8rem; */
+    }
+
+    #scoreTracking{
+        font-size: 1rem;
+    }
+    
+    #progress{
+        font-size: 1rem;
     }
     
     #navigationCircle i{
